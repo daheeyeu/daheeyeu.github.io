@@ -1,1 +1,56 @@
-Hello World
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>뽀득뽀득 뷰티샵</title>
+  <meta name="description" content="면도·왁싱·귀청소·마사지·팩·클렌징·헤드스파·간식까지! 도트 뷰티샵에서 ASMR 대리만족하고 진짜 제품 성분·리뷰 보고 장바구니에 담아요." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text y='14' font-size='14'>🫧</text></svg>" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/galmuri@2.40.1/dist/galmuri.css" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <h1 class="logo"><span class="logo-bubble">🫧</span> 뽀득뽀득 뷰티샵</h1>
+    <div class="stats">
+      <span class="stat" title="코인"><i>🪙</i><b id="st-coins">0</b></span>
+      <span class="stat" title="만족도"><i>😊</i><b id="st-happy">0</b></span>
+      <span class="stat" title="다녀간 손님"><i>👥</i><b id="st-guests">0</b></span>
+      <button class="stat stat-btn" id="btn-cart-top" title="장바구니"><i>🛒</i><b id="st-cart">0</b></button>
+      <button class="stat stat-btn" id="btn-sound" title="소리 켜기/끄기"><i id="sound-icon">🔊</i></button>
+    </div>
+  </header>
+
+  <main class="layout">
+    <section class="map-wrap" aria-label="뷰티샵 지도">
+      <div class="map-title">
+        <span>🏠 방을 눌러서 들어가 보세요!</span>
+        <span class="map-hint">방에서 제품을 <b>써보기</b> 하면 손님이 케어를 받아요</span>
+      </div>
+      <div class="map" id="map"></div>
+      <div class="ticker" id="ticker">🫧 어서오세요! 오늘도 뽀득뽀득한 하루 되세요~</div>
+    </section>
+
+    <aside class="side">
+      <nav class="tabs" role="tablist">
+        <button class="tab" data-tab="room" role="tab">🧴 방 관리</button>
+        <button class="tab" data-tab="cart" role="tab">🛒 장바구니</button>
+        <button class="tab" data-tab="board" role="tab">🗳️ 추천투표</button>
+      </nav>
+      <div class="panel" id="panel"></div>
+    </aside>
+  </main>
+
+  <footer class="footer">
+    <p id="disclosure"></p>
+    <p class="small">가격·성분은 바뀔 수 있어요. 구매 전에 스토어 페이지에서 꼭 확인해 주세요. · 장바구니와 투표는 이 브라우저에 저장돼요.</p>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/sprites.js"></script>
+  <script src="js/asmr.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
