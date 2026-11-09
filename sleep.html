@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>수면 ASMR 극장 · 뽀득뽀득 뷰티샵</title>
+  <meta name="description" content="3D 캐릭터가 스킨케어·귀청소·머리감기를 받는 걸 보면서 리얼한 ASMR과 빗소리·피아노 배경음으로 잠들어요. 타이머로 자동 종료." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text y='14' font-size='14'>🌙</text></svg>" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/galmuri@2.40.1/dist/galmuri.css" />
+  <link rel="stylesheet" href="css/sleep.css" />
+</head>
+<body>
+  <canvas id="stage" aria-label="3D 케어 장면"></canvas>
+  <div class="dim" id="dim"></div>
+
+  <!-- 상단: 지금 하는 동작 -->
+  <header class="hud ui" id="hud">
+    <a class="home" href="index.html" title="뷰티샵으로">🫧</a>
+    <div class="now">
+      <div class="now-course" id="now-course">스킨케어</div>
+      <div class="now-step" id="now-step">클렌징 오일 롤링</div>
+      <div class="now-desc" id="now-desc"></div>
+      <div class="dots" id="dots"></div>
+    </div>
+    <div class="timer-badge" id="timer-badge" hidden>⏰ <b id="timer-left">--:--</b></div>
+  </header>
+
+  <!-- 하단 컨트롤 -->
+  <nav class="bar ui" id="bar">
+    <div class="row main-row">
+      <button class="ic" id="b-prev" title="이전 동작">⏮</button>
+      <button class="ic big" id="b-play" title="일시정지">⏸</button>
+      <button class="ic" id="b-next" title="다음 동작">⏭</button>
+      <label class="vol" title="ASMR 볼륨">🎧<input type="range" id="v-asmr" min="0" max="1.4" step="0.01" value="0.9" /></label>
+      <button class="ic" id="b-more" title="설정">⚙️</button>
+    </div>
+    <div class="more" id="more" hidden>
+      <div class="grp">
+        <span class="lbl">코스</span>
+        <div class="chips" id="c-course"></div>
+      </div>
+      <div class="grp">
+        <span class="lbl">배경음</span>
+        <div class="chips" id="c-bgm"></div>
+        <label class="vol small">🔈<input type="range" id="v-bgm" min="0" max="1" step="0.01" value="0.45" /></label>
+      </div>
+      <div class="grp">
+        <span class="lbl">타이머</span>
+        <div class="chips" id="c-timer"></div>
+      </div>
+      <div class="grp">
+        <span class="lbl">화면</span>
+        <div class="chips">
+          <button class="chip" id="b-dim">🌙 어둡게</button>
+          <button class="chip" id="b-hide">🙈 버튼 숨기기</button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 시작 화면 -->
+  <section class="start" id="start">
+    <div class="start-card">
+      <h1>🌙 수면 ASMR 극장</h1>
+      <p class="sub">귀여운 손님이 케어 받는 걸 보면서 스르륵 잠들어요.<br />이어폰을 끼면 소리가 양쪽 귀로 따로 들려서 더 생생해요 🎧</p>
+      <h2>어떤 케어를 볼까요?</h2>
+      <div class="course-cards" id="course-cards"></div>
+      <h2>배경음</h2>
+      <div class="chips" id="s-bgm"></div>
+      <h2>잠들기 타이머 <small>(시간이 되면 소리가 서서히 꺼지고 종료돼요)</small></h2>
+      <div class="chips" id="s-timer"></div>
+      <h2>동작 하나당 길이</h2>
+      <div class="chips" id="s-len"></div>
+      <button class="go" id="go">시작하기 ▶</button>
+      <p class="tiny">소리는 녹음 파일 없이 브라우저에서 실시간으로 합성돼요. sounds 폴더에 직접 녹음한 파일을 넣으면 그 소리로 바뀌어요.</p>
+    </div>
+  </section>
+
+  <!-- 종료 화면 -->
+  <section class="end" id="end" hidden>
+    <div>
+      <p class="moon">🌙</p>
+      <p>잘 자요… 좋은 꿈 꾸세요</p>
+      <button class="chip" id="b-again">다시 듣기</button>
+    </div>
+  </section>
+
+  <noscript>이 페이지는 자바스크립트가 필요해요.</noscript>
+  <script type="module" src="js/sleep/main.js"></script>
+</body>
+</html>

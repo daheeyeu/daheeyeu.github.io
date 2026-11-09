@@ -28,6 +28,9 @@
   const catOf = (p) => ROOM[p.room].category;
   const linkOf = (p) => p.link || STORES[p.store].search(p.query || p.name);
 
+  // 방 → 수면 ASMR 코스
+  const SLEEP_COURSE = { shave: "skin", wax: "skin", massage: "skin", pack: "skin", cleanse: "skin", ear: "ear", headspa: "hair", snack: "all" };
+
   const FURNITURE = {
     shave: ["💈", "🪞"],
     wax: ["🔥", "🍯"],
@@ -336,6 +339,7 @@
         <h2>${r.icon} ${r.name}</h2>
         <p>${esc(r.desc)}</p>
         <p class="now">${c ? `<img class="px" src="${spriteURL(c.id)}" alt="" /> 지금 <b>${c.name}</b>이(가) 기다리고 있어요` : ""}</p>
+        <a class="btn btn-try wide sleep-btn" href="sleep.html?course=${SLEEP_COURSE[r.id] || "all"}">🌙 3D 캐릭터로 ASMR 보면서 잠들기</a>
       </div>
       ${items.map((p) => productCard(p)).join("")}`;
   }

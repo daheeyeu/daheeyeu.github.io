@@ -55,6 +55,10 @@ a { color: inherit; }
 }
 .stat i { font-style: normal; }
 .stat-btn:hover { background: var(--gold); }
+.sleep-link { background: #3a2a5c; color: #fff; text-decoration: none; }
+.sleep-link:hover { background: #57408a; }
+.sleep-btn { margin-top: 6px; background: #d9ccff; }
+.map-hint a { color: var(--wall-dark); }
 .stat-btn:active { transform: translate(2px, 2px); box-shadow: none; }
 .bump { animation: bump 0.4s steps(3); }
 
